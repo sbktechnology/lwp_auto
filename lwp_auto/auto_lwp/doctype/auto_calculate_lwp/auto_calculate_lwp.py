@@ -51,7 +51,6 @@ def auto_calculate_lwp2(self,method):
 	role_list = frappe.db.sql("""select name,owner,parent,idx,role from tabUserRole where parent=%s and role='Management'""", user)
 	if len(role_list) == 0:
 		date = self.fiscal_year +'-' + self.month +'-'
-		self.letter_head='test'
 		# frappe.errprint(year +'-' + month+'-')
 		present_days=frappe.db.sql("""select count(name) from `tabAttendance` where status='Present' and employee='%s' and
 			att_date like '%s%%' """%(self.employee,date),as_list=1,debug=1)
