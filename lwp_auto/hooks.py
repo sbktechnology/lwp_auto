@@ -18,6 +18,8 @@ app_version = "0.0.1"
 # web_include_css = "/assets/lwp_auto/css/lwp_auto.css"
 # web_include_js = "/assets/lwp_auto/js/lwp_auto.js"
 
+fixtures = ["Custom Script"]
+
 # Home Pages
 # ----------
 
