@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include lwp_auto *.css
+recursive-include lwp_auto *.csv
+recursive-include lwp_auto *.html
+recursive-include lwp_auto *.ico
+recursive-include lwp_auto *.js
+recursive-include lwp_auto *.json
+recursive-include lwp_auto *.md
+recursive-include lwp_auto *.png
+recursive-include lwp_auto *.py
+recursive-include lwp_auto *.svg
+recursive-include lwp_auto *.txt
+recursive-exclude lwp_auto *.pyc
