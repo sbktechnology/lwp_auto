@@ -41,7 +41,7 @@ fixtures = ["Custom Script"]
 # ------------
 
 # before_install = "lwp_auto.install.before_install"
-# after_install = "lwp_auto.install.after_install"
+after_install = "lwp_auto.auto_lwp.doctype.auto_calculate_lwp.auto_calculate_lwp.after_install"
 
 # Desk Notifications
 # ------------------

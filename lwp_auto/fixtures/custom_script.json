@@ -1,0 +1,11 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Salary Slip", 
+  "modified": "2015-11-25 13:27:09.072509", 
+  "name": "Salary Slip-Client", 
+  "script": "frappe.ui.form.on(\"Salary Slip\", \"month\", function(frm,doc,dt,dn) {\n                console.log(typeof user_roles);\n                 if('Management' in user_roles){\n              console.log('true');\n          }\n\n    \n    frappe.call({\n        method:\"lwp_auto.auto_lwp.doctype.auto_calculate_lwp.auto_calculate_lwp.auto_calculate_lwp\",\n        args:{\n            \"emp\":frm.doc.employee,\n            \"month\":frm.doc.month,\n            \"year\":frm.doc.fiscal_year,\n        },\n        callback: function(r) {\n          if (r.message!=false){  \n            console.log(\"trigger\")\n            console.log(r.message[0])\n            console.log(frm.doc.total_days_in_month)\n            cur_frm.set_value(\"leave_without_pay\", (frm.doc.total_days_in_month - r.message[0][0]));\n            console.log(frm.doc.leave_without_pay)\n            frm.doc.days_absent = frm.doc.total_days_in_month - r.message[0][0]\n            frm.doc.payment_days = frm.doc.total_days_in_month - frm.doc.leave_without_pay\n            refresh_field('payment_days')\n            console.log(frm.doc.days_absent)\n            refresh_field('leave_without_pay')\n            refresh_field('days_absent')\n            refresh_field('total_days_in_month')\n            console.log(\"refresh\")\n          }\n        }\n      });\n});", 
+  "script_type": "Client"
+ }
+]

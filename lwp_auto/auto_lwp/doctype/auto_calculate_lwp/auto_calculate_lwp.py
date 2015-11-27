@@ -92,3 +92,7 @@ def auto_calculate_lwp2(self,method):
 				d.e_modified_amount = d.e_amount
 			self.gross_pay += flt(d.e_modified_amount)
 
+
+	def after_install():
+		frappe.get_doc({'doctype': "Role", "role_name": "Management"}).insert()
+		frappe.db.commit()
